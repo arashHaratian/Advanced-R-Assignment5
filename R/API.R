@@ -46,12 +46,13 @@ get_politicians_data <- function(column_idx = c(5,6,11)){
   if(!(is.vector(x=column_idx,mode="numeric"))){
     stop()
   }
-
+  # Retrieving data
   df_raw <- dataset_query()
   rownames(df_raw) <- df_raw[["hangar_id"]]
   final_df <- df_raw[column_idx]
-  years_list <- list()
 
+  # Processing data
+  years_list <- list()
   for(dataframe in df_raw[[18]][[1]]){
     years <- years_function(dataframe)
     id <- dataframe[["hangar_id"]][[1]]
@@ -61,5 +62,9 @@ get_politicians_data <- function(column_idx = c(5,6,11)){
 
   final_df$years <- I(years_list)
   colnames(final_df) <- c("Birth_Year","Sex","Party","Years")
+
+  # Cleaning data
+
+  final_df <- final_df[which(final_df[["Birth_Year"]] != "0"),]
   return(final_df)
 }
