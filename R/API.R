@@ -66,5 +66,6 @@ get_politicians_data <- function(column_idx = c(5,6,11)){
   # Cleaning data
 
   final_df <- final_df[which(final_df[["Birth_Year"]] != "0"),]
+  final_df$Party[final_df[["Party"]]=="" | final_df[["Party"]]=="-"] <- "Unknown"
   return(final_df)
 }
