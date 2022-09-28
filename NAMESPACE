@@ -2,5 +2,7 @@
 
 export(dataset_query)
 export(get_politicians_data)
+export(run_my_app)
 export(years_function)
+import(shiny)
 importFrom(magrittr,"%>%")
