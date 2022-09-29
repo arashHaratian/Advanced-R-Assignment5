@@ -24,10 +24,17 @@ dataset_query <- function() {
 #'
 #' @importFrom magrittr "%>%"
 years_function <- function(dataframe_var){
+  stopifnot(class(dataframe_var) == "data.frame",
+            c("from","tom") %in% names(dataframe_var),
+            !all(dataframe_var[["from"]] == ""))
+
   dataframe_var_filt <- dataframe_var[which(dataframe_var[["from"]] != ""),]
   dataframe_var_filt[which(dataframe_var_filt[["tom"]] == ""),"tom"] <- "2022"
-  df <- dataframe_var_filt[c("from","tom")] %>% dplyr::rowwise()
-  values <- df %>% dplyr::mutate(total = list(as.numeric(substring(from,1,4)):as.numeric(substring(tom,1,4))))
+  values <- dataframe_var_filt[c("from","tom")] %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(total = list(
+      as.numeric(substring(from,1,4)):as.numeric(substring(tom,1,4)))
+    )
   result <- unique(unlist(values[["total"]]))
   return(result)
 }
@@ -35,9 +42,9 @@ years_function <- function(dataframe_var){
 #' get_politicians_data function
 #'
 #' This function gets the desired data of the Swedish politicians. It returns a `data.frame` containing the columns we want to extract from the original data,
-#' plus an additional column with the years that politician has been working.
+#' plus the default columns.
 #'
-#' @param column_idx is `numeric` vector that indicates the colums to select in the original data.
+#' @param column_idx is `numeric` vector that indicates the columns to select in the original data.
 #'
 #' @return a `data.frame`
 #' @export
@@ -46,6 +53,9 @@ get_politicians_data <- function(column_idx = c(5,6,11)){
   if(!(is.vector(x=column_idx,mode="numeric"))){
     stop()
   }
+
+  column_idx <- unique(c(5,6,11,column_idx))
+
   # Retrieving data
   df_raw <- dataset_query()
   rownames(df_raw) <- df_raw[["hangar_id"]]
@@ -60,8 +70,8 @@ get_politicians_data <- function(column_idx = c(5,6,11)){
     years_list <- append(years_list,list(years))
   }
 
-  final_df$years <- I(years_list)
-  colnames(final_df) <- c("Birth_Year","Sex","Party","Years")
+  final_df$Years <- I(years_list)
+  colnames(final_df)[1:3] <- c("Birth_Year","Sex","Party")
 
   # Cleaning data
 

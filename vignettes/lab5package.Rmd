@@ -30,5 +30,5 @@ Given a `dataframe` with the `from` and `tom` columns containing dates with form
 
 ## get_politicians_data()
 
-The `get_politicians_data()`calls the `dataset_query()` and the `years_function()` and ultimately returns a `data.frame` containing the columns we want to extract from the original data, plus an additional column with the years that politician has been working.  
+The `get_politicians_data()`calls the `dataset_query()` and the `years_function()` and ultimately returns a `data.frame` containing the columns we want to extract from the original data, plus an the default columns containing Birth_Year, Sex, Party and Years.  
 -  `column_idx` is the argument of the function, it should be a `numeric` vector with the indexes of the columns we'd like to extract. If unspecified, by default will take the columns corresponding to birth year, sex and party.
