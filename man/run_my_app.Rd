@@ -2,10 +2,10 @@
 % Please edit documentation in R/app.R
 \name{run_my_app}
 \alias{run_my_app}
-\title{running the app}
+\title{The function to run the Shiny app}
 \usage{
 run_my_app()
 }
 \description{
-running the app
+This function will run the app created by shiny, for plotting some information from the \code{get_politicians_data()} dataset.
 }
