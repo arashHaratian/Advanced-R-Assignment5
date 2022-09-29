@@ -6,7 +6,7 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("year",
-                         min = 1971,
+                         min = 1976,
                          max = 2022,
                          value = 1999,
                          label = "Select the Year:"),
