@@ -1,6 +1,8 @@
 # LAB. 5 Package
 
-
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/arashHaratian/Advanced-R-Assignment5/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/arashHaratian/Advanced-R-Assignment5/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
 
 _This is the repo for 5th lab assignment for Advanced R Programming_
