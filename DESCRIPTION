@@ -1,11 +1,25 @@
 Package: lab5package
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
    person("Arash", "Haratian", , "araha147@student.liu.com", role = c("aut", "cre"))
-    person("Daniel", "Díaz-Roncero González", , "dandi692@student.liu.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+   person("Daniel", "Díaz-Roncero González", , "dandi692@student.liu.com", role = c("aut", "cre"))
+Description: This package contains the needed functions for retrieving information from the the "data.riksdagen" API
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Imports: 
+    curl,
+    dplyr,
+    forcats,
+    ggplot2,
+    jsonlite,
+    magrittr,
+    shiny
+Config/testthat/edition: 3
