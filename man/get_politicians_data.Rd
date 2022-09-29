@@ -7,12 +7,12 @@
 get_politicians_data(column_idx = c(5, 6, 11))
 }
 \arguments{
-\item{column_idx}{is \code{numeric} vector that indicates the colums to select in the original data.}
+\item{column_idx}{is \code{numeric} vector that indicates the columns to select in the original data.}
 }
 \value{
 a \code{data.frame}
 }
 \description{
 This function gets the desired data of the Swedish politicians. It returns a \code{data.frame} containing the columns we want to extract from the original data,
-plus an additional column with the years that politician has been working.
+plus the default columns.
 }
